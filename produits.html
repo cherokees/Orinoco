@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/produits.js" async></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
         integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/aaf8e3dcb9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <script src="js/produits.js"></script>
-    <title>Orinoco Acceuil</title>
+    <title>Orinoco produits</title>
 </head>
 
 <body>
@@ -33,20 +33,11 @@
             <div class="col-6 info_product">
             </div>
         </div>
-        <div>
-            <button id="button_more">+</button>
-            <button id="button_less">-</button>
-            <form>
-                <input type="number" id="qty" value="1" placeholder="Quantite">
-            </form>
-            <p id="quantity_product"></p>
-            <div class="container_ajout_panier">
-                <button class="add_basket" type="button">Ajouter au panier</button>
-            </div>
-        </div>
     </div>
-    <!-- <div class="image_product"></div>
-    <div class="para"></div> -->
+    <button id="button_more">+</button>
+    <button id="button_less">-</button>
+    <input type="number" id="qty" value="1" placeholder="Quantité">
+    <button id="add_basket">Ajouter au panier</button>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

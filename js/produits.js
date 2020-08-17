@@ -3,7 +3,7 @@ function filter_qty(para_int) {
     //https://delicious-insights.com/fr/articles/convertir-un-nombre-en-texte-en-javascript/#la-m-thode-hack-ultra-performante-mais-peu-lisible-et-non-sans-limites
     let result = parseInt(para_int | 0);
     if (result < 1) result = 1; // la quantitee doit obligatoirement etre 1 ou +
-    //si ele resultat est >= 1 il reste le même, par exemple 5 restera 5
+    //si le resultat est >= 1 il reste le même, par exemple 5 restera 5
     return result;
 }
 
@@ -12,11 +12,11 @@ let url = window.location.href;
 let urlObject = new URL(url);
 let id = urlObject.searchParams.get("id");
 let bool_new_product = true;
+var id_element_click = 0;
+var id_element_temporary = 0;
+let input_qty = document.getElementById("qty")
 let button_more = document.getElementById("button_more");
-console.log(button_more)
 let button_less = document.getElementById("button_less");
-let input_qty = document.getElementById("qty");
-let quantity_product = document.getElementById("quantity_product")
 let qty = 1;
 
 var arr_cart = JSON.parse(localStorage.getItem("cart"));
@@ -33,7 +33,7 @@ fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
     info_product.innerHTML += `<p> DESCRIPTION : ${data.description}</p>`;
     info_product.innerHTML += `<p> PRIX : ${data.price}</p>`;
 
-    let add_basket = document.querySelector(".add_basket");
+    let add_basket = document.getElementById("add_basket");
     add_basket.addEventListener("click", () => {
         // console.log(data.imageUrl)
         // console.log(data.description)
@@ -65,7 +65,7 @@ fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
         localStorage.setItem("cart", JSON.stringify(arr_cart));
     });
 });
-console.log(button_more)
+
 button_more.addEventListener('click', () => {
     input_qty.value = filter_qty(input_qty.value) + 1;
 })

@@ -24,14 +24,20 @@ if (!arr_cart) {
     arr_cart = [];
 };
 
+let nav_qty_basket = document.querySelector(".nav_qty_basket");
+
+let qty_basket = parseInt(arr_cart.length);
+
+nav_qty_basket.innerHTML = qty_basket;
+
 fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
     return response.json();
 }).then(function (data) {
     let info_product = document.querySelector(".info_product");
     document.querySelector(".image_product").innerHTML += `<img src="${data.imageUrl}" class="img-thumbnail"></img>`;
-    info_product.innerHTML += `<p> NOM : ${data.name}</p>`;
-    info_product.innerHTML += `<p> DESCRIPTION : ${data.description}</p>`;
-    info_product.innerHTML += `<p> PRIX : ${data.price}</p>`;
+    info_product.innerHTML += `<p id= "name">${data.name}</p>`;
+    info_product.innerHTML += `<p id= "description"> DESCRIPTION : ${data.description}</p>`;
+    info_product.innerHTML += `<p id= "price"> PRIX : ${data.price / 100} €</p>`;
 
     let add_basket = document.getElementById("add_basket");
     add_basket.addEventListener("click", () => {

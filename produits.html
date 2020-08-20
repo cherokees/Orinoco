@@ -21,7 +21,7 @@
                     <a class="nav-link" href="acceuil.html">Acceuil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="panier.html">Panier</a>
+                    <a class="nav-link" href="panier.html">Panier<span class="nav_qty_basket">0</span></a>
                 </li>
             </ul>
         </div>
@@ -34,10 +34,14 @@
             </div>
         </div>
     </div>
-    <button id="button_more">+</button>
-    <button id="button_less">-</button>
-    <input type="number" id="qty" value="1" placeholder="Quantité">
-    <button id="add_basket">Ajouter au panier</button>
+    <div class="command_line">
+        <button id="button_more">+</button>
+        <button id="button_less">-</button>
+        <input type="number" id="qty" value="1" placeholder="Quantité">
+        <div class="button_command_line">
+            <button id="add_basket">Ajouter au panier</button>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

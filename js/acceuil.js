@@ -1,3 +1,8 @@
+var arr_cart = JSON.parse(localStorage.getItem("cart"));
+if (!arr_cart) {
+    arr_cart = [];
+};
+
 fetch("http://localhost:3000/api/teddies").then(function (response) {
     return response.json();
 })
@@ -18,3 +23,10 @@ fetch("http://localhost:3000/api/teddies").then(function (response) {
         console.log(data)
         console.log(card)
     })
+
+let nav_qty_basket = document.querySelector(".nav_qty_basket");
+console.log(nav_qty_basket)
+
+let qty_basket = parseInt(arr_cart.length);
+
+nav_qty_basket.innerHTML = qty_basket;

@@ -26,42 +26,62 @@
 
     <table id="basket"></table>
 
-    <form>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    <div class="card" id="container_form">
+        <h2>Formulaire d'envois de commande</h2>
+        <form action="" class="was-validated">
+            <div class="col">
+                <div class="form-group">
+                    <label for="username">Prénom</label>
+                    <input type="text" id="prenom" class="form-control" placeholder="prénom" required="">
+                    <div class="valid-feedback">Valide</div>
+                    <div class="invalid-feedback">Veuillez écrire un prénom valide</div>
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+            <div class="col">
+                <div class="form-group">
+                    <label for="firstname">Nom</label>
+                    <input type="text" id="name" class="form-control" placeholder="nom" required="">
+                    <div class="valid-feedback">Valide</div>
+                    <div class="invalid-feedback">Veuillez écrire un nom valide</div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="form-group">
-            <label for="inputAddress2">Code Postal</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputCity">Ville</label>
-                <input type="text" class="form-control" id="inputCity">
+            <div class="col">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="email" required="">
+                    <div class="valid-feedback">Valide</div>
+                    <div class="invalid-feedback">Veuillez écrire un email valide</div>
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choisir...</option>
-                    <option>France</option>
-                    <option>Belgique</option>
-                    <option>Luxembourg</option>
-                </select>
+            <div class="col">
+                <div class="form-group">
+                    <label for="adress">Adresse</label>
+                    <input type="text" id="adresse" class="form-control" placeholder="adresse" required="">
+                    <div class="valid-feedback">Valide</div>
+                    <div class="invalid-feedback">Veuillez écrire une adresse valide</div>
+                </div>
             </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Envoyer la commande</button>
-    </form>
+            <div class="col">
+                <div class="form-group">
+                    <label for="code_postal">Code postal</label>
+                    <input type="text" class="form-control" placeholder="code_postal" required="">
+                    <div class="valid-feedback">Valide</div>
+                    <div class="invalid-feedback">Veuillez écrire un code postal valide</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" class="form-control" placeholder="ville" required="">
+                    <div class="valid-feedback">Valide</div>
+                    <div class="invalid-feedback">Veuillez écrire une ville valide</div>
+                </div>
+            </div>
+            <div class="col">
+                <input type="submit" value="envoyer la commande" id="send_form">
+            </div>
+        </form>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

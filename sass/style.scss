@@ -1,9 +1,16 @@
+$myOrange : rgb(226, 133, 57);
+
+///////////////////////////////////
+///////////acceuil.html////////////
+///////////////////////////////////
+
 body{
     background-color: rgb(252, 252, 252);
+    width: auto;
 }
 .navbar {
     font-size: 30px;
-    background-color:rgb(226, 133, 57);
+    background-color:$myOrange;
     .fas {
         margin-right: 20px;
     }
@@ -14,7 +21,7 @@ img{
 .container-fluid{
     margin-top: 100px;
 }
-.card{
+.card_item_acceuil{
     margin: 30px;
     height: 35rem;
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
@@ -25,6 +32,156 @@ img{
     }
 }
 
-form {
-    margin: 3rem;
+///////////////////////////////////
+///////////produit.html////////////
+///////////////////////////////////
+
+.info_product{
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 20px;
+    #name{
+        font-size: 30px;
+    }
+}
+
+.command_line{
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 18px;
+    font-weight: bold;
+    button{
+        background-color: #ffffff; 
+        margin-right: 1rem;
+        width: 70px;
+        height: 40px;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        transition-duration: 0.4s;
+        box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+    }
+    button:hover{
+        background-color: $myOrange;
+        color: white;
+    }
+    #add_basket{
+        margin-top: 2rem;
+        width: 110px;
+        height: 70px;
+        text-align: center;
+    }
+}
+
+///////////////////////////////////
+///////////panier.html/////////////
+///////////////////////////////////
+
+#basket{
+    width: 95%;
+    margin: 2rem;
+}
+
+.teddy_product{
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.75);
+    display: flex;
+    margin-top: 2rem;
+    font-size: 20px;
+    .teddy_image{
+        margin: 0;
+        width: 8rem;
+        height: 8rem;
+    }
+    .teddy_name{
+        margin-left: 5rem;
+        padding-top: 3rem;
+    }
+    .teddy_price{
+        margin-left: 2rem;
+        padding-top: 3rem;
+    }
+    .quantity{
+        margin-left: 2rem;
+        padding-top: 3rem;
+    }
+    .teddy_product_button{
+        align-items: center;
+        display: flex;
+        position: absolute;
+        right: 2%;
+        margin-top: 2rem;
+        
+        button{
+            margin: 0.5rem;
+            width: 3rem;
+            height: 3rem;
+            box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            transition-duration: 0.4s;
+        }
+    }
+    button:hover{
+        background-color: $myOrange;
+        color: white;
+    }
+}
+
+#container_form{
+    margin-top: 5rem;
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.75);
+    background-color: rgb(236, 236, 236);
+    margin-left: 2rem;
+    height: 58rem;
+    width: 35rem;
+    h2{
+        text-align: center;
+        margin-top: 2rem;
+    }
+}
+
+.was-validated {
+    margin: 4rem;
+    label{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .valid-feedback{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .invalid-feedback{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    #send_form{
+        margin-top: 1.5rem;
+        background-color: #ffffff; 
+        margin-right: 1rem;
+        width: 200px;
+        height: 40px;
+        border: 1px solid black;
+        box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        transition-duration: 0.4s;
+    }
+    #send_form:hover{
+        background-color: $myOrange;
+        color: white;
+    }
+}
+
+///////////////////////////////////
+////confirmation-commande.html/////
+///////////////////////////////////
+
+.container_message_confirmation{
+    margin-left: 5rem;
+    margin-top: 3rem;
+    h1{
+        margin-bottom: 3rem;
+    }
+    p{
+        font-size: 18px;
+    }
 }

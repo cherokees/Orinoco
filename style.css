@@ -53,6 +53,7 @@ img {
   margin-top: 1.5rem;
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 10rem;
 }
 .command_line button {
   background-color: #ffffff;
@@ -75,6 +76,11 @@ img {
   text-align: center;
 }
 
+@media screen and (max-width: 385px) {
+  button {
+    margin-bottom: 2rem;
+  }
+}
 #basket {
   width: 95%;
   margin: 2rem;

@@ -13,11 +13,16 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        <a class="text-dark text-decoration-none " href="accueil.html"><i class="fas fa-shopping-cart">ORINOCO</i></a>
-        <div class="collapse navbar-collapse" id="navbarNav">
+    <nav class="col navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand text-dark text-decoration-none " href="accueil.html"><i
+                class="fas fa-shopping-cart">ORINOCO</i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-sm-end" id="navbarContent">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="panier.html">PANIER&nbsp;<span class="nav_qty_basket ">0</span></a>
                 </li>
             </ul>
@@ -27,14 +32,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6" id="image_product"></div>
-            <div class="col-6 info_product">
+            <div class="info_product col ">
             </div>
         </div>
     </div>
     <div class="command_line">
         <button id="button_more">+</button>
         <button id="button_less">-</button>
-        <input type="number" id="qty" value="1" placeholder="Quantité">
+        <input type="number" id="qty" class="input_qty_product" value="1" placeholder="Quantité">
         <div class="button_command_line">
             <button id="add_basket">Ajouter au panier</button>
         </div>

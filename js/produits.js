@@ -19,22 +19,16 @@ let button_more = document.getElementById("button_more");
 let button_less = document.getElementById("button_less");
 let qty = 1;
 
-var arr_cart = JSON.parse(localStorage.getItem("cart"));
-if (!arr_cart) {
-    arr_cart = [];
-};
-
-let nav_qty_basket = document.querySelector(".nav_qty_basket");
-
-let qty_basket = parseInt(arr_cart.length);
-
-nav_qty_basket.innerHTML = qty_basket;
+// var arr_cart = JSON.parse(localStorage.getItem("cart"));
+// if (!arr_cart) {
+//     arr_cart = [];
+// };
 
 fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
     return response.json();
 }).then(function (data) {
     let info_product = document.querySelector(".info_product");
-    document.querySelector(".image_product").innerHTML += `<img src="${data.imageUrl}" class="img-thumbnail"></img>`;
+    document.getElementById("image_product").innerHTML += `<img src="${data.imageUrl}" class="img-thumbnail">`;
     info_product.innerHTML += `<p id= "name">${data.name}</p>`;
     info_product.innerHTML += `<p id= "description"> DESCRIPTION : ${data.description}</p>`;
     info_product.innerHTML += `<p id= "price"> PRIX : ${data.price / 100} €</p>`;
@@ -58,7 +52,6 @@ fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
             arr_cart.push(data);
         }
         else {
-            imax = arr_cart.length;
             for (var i = 0; i < imax; i++) {
                 id_element_temporary = arr_cart[i]._id;
                 if (id_element_temporary == id_element_click) {
@@ -69,19 +62,25 @@ fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
             }
         }
         localStorage.setItem("cart", JSON.stringify(arr_cart));
+        refresh_nav_basket();
     });
 });
 
 button_more.addEventListener('click', () => {
     input_qty.value = filter_qty(input_qty.value) + 1;
+    refresh_nav_basket();
 })
 button_less.addEventListener('click', () => {
     input_qty.value = filter_qty(filter_qty(input_qty.value) - 1);
+    refresh_nav_basket();
 })
 input_qty.addEventListener('change', () => {
     input_qty.value = filter_qty(input_qty.value);
+    refresh_nav_basket();
 })
 
 
 // console.log(document.querySelectorAll("iframe[data-image_product]"))
 // console.log(document.getAttribute("data-image_product"))
+
+

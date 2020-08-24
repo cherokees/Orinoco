@@ -19,16 +19,26 @@ img {
   margin-top: 100px;
 }
 
-.card_item_acceuil {
-  margin: 30px;
+.card_item_accueil {
+  margin: 3rem;
   height: 35rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.3s ease-in-out;
 }
-.card_item_acceuil:hover {
-  box-shadow: 0px 0px 20px 10px rgba(119, 119, 119, 0.8);
+.card_item_accueil:hover {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+@media screen and (max-width: 680px) {
+  .card {
+    height: 30rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .card {
+    height: 26rem;
+  }
+}
 .info_product {
   text-align: center;
   margin-top: 5rem;
@@ -76,29 +86,32 @@ img {
   margin-top: 2rem;
   font-size: 20px;
 }
-.teddy_product .teddy_image {
+.teddy_product .wrap_teddy_image {
+  background-color: pink;
   margin: 0;
   width: 8rem;
   height: 8rem;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.teddy_product .container_teddy_infos {
+  top: 50%;
 }
 .teddy_product .teddy_name {
-  margin-left: 5rem;
-  padding-top: 3rem;
+  margin-left: 2rem;
 }
 .teddy_product .teddy_price {
   margin-left: 2rem;
-  padding-top: 3rem;
 }
 .teddy_product .quantity {
   margin-left: 2rem;
-  padding-top: 3rem;
 }
 .teddy_product .teddy_product_button {
   align-items: center;
   display: flex;
-  position: absolute;
-  right: 2%;
-  margin-top: 2rem;
+  top: 50%;
 }
 .teddy_product .teddy_product_button button {
   margin: 0.5rem;
@@ -168,6 +181,18 @@ img {
 }
 .container_message_confirmation p {
   font-size: 18px;
+}
+
+/*
+.teddy_product[data-id-produit="5beaa8bf1c9d440000a57d94"]{
+    background-color: indianred;
+}
+*/
+button, input[type=submit] {
+  border-radius: 50rem !important;
+}
+button::first-letter, input[type=submit]::first-letter {
+  text-transform: uppercase !important;
 }
 
 /*# sourceMappingURL=style.css.map */

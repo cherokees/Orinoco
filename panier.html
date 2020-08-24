@@ -5,34 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css">
-    <script src="js/panier.js" async></script>
-    <script src="https://kit.fontawesome.com/aaf8e3dcb9.js" crossorigin="anonymous"></script>
+    <!-- <script src="js/panier.js" async></script>
+    <script src="https://kit.fontawesome.com/aaf8e3dcb9.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
         integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
-    <title>Orinoco Acceuil</title>
+    <title>Orinoco Accueil</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <i class="fas fa-shopping-cart"></i>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <a class="text-dark text-decoration-none " href="accueil.html"><i class="fas fa-shopping-cart">ORINOCO</i></a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="acceuil.html">Acceuil <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="panier.html">PANIER&nbsp;<span class="nav_qty_basket ">0</span></a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <table id="basket"></table>
+    <div class="container-fluid">
+        <table id="basket"></table>
+    </div>
 
     <div class="card" id="container_form">
-        <h2>Formulaire d'envois de commande</h2>
+        <h2 class="text-center">Commande</h2>
         <form action="" class="was-validated">
             <div class="col">
                 <div class="form-group">
                     <label for="username">Prénom</label>
-                    <input type="text" id="prenom" class="form-control" placeholder="prénom" required="">
+                    <input type="text" id="prenom" class="form-control" placeholder="prénom" required="" minlength="2">
                     <div class="valid-feedback">Valide</div>
                     <div class="invalid-feedback">Veuillez écrire un prénom valide</div>
                 </div>
@@ -40,39 +42,33 @@
             <div class="col">
                 <div class="form-group">
                     <label for="firstname">Nom</label>
-                    <input type="text" id="name" class="form-control" placeholder="nom" required="">
+                    <input type="text" id="name" class="form-control" placeholder="nom" required="" minlength="2">
                     <div class="valid-feedback">Valide</div>
                     <div class="invalid-feedback">Veuillez écrire un nom valide</div>
                 </div>
             </div>
             <div class="col">
-                <div class="form-group">
+                <div class="form-group" id="container_form_email">
                     <label for="email">Email</label>
                     <input type="email" id="email" class="form-control" placeholder="email" required="">
-                    <div class="valid-feedback">Valide</div>
-                    <div class="invalid-feedback">Veuillez écrire un email valide</div>
                 </div>
             </div>
             <div class="col">
-                <div class="form-group">
+                <div class="form-group" id="container_form_adress">
                     <label for="adress">Adresse</label>
-                    <input type="text" id="adresse" class="form-control" placeholder="adresse" required="">
-                    <div class="valid-feedback">Valide</div>
-                    <div class="invalid-feedback">Veuillez écrire une adresse valide</div>
+                    <input type="text" id="adress" class="form-control" placeholder="adresse" required="" minlength="4">
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label for="code_postal">Code postal</label>
-                    <input type="text" class="form-control" placeholder="code_postal" required="">
-                    <div class="valid-feedback">Valide</div>
-                    <div class="invalid-feedback">Veuillez écrire un code postal valide</div>
+                    <input type="text" id="postal_code" class="form-control" placeholder="code postal" required="">
                 </div>
             </div>
             <div class="col">
                 <div class="form-group">
                     <label for="ville">Ville</label>
-                    <input type="text" id="ville" class="form-control" placeholder="ville" required="">
+                    <input type="text" id="ville" class="form-control" placeholder="ville" required="" minlength="3">
                     <div class="valid-feedback">Valide</div>
                     <div class="invalid-feedback">Veuillez écrire une ville valide</div>
                 </div>
@@ -92,6 +88,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
         integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
         crossorigin="anonymous"></script>
+    <script src="general.js"></script>
+    <script src="js/panier.js" async></script>
+    <script src="https://kit.fontawesome.com/aaf8e3dcb9.js" crossorigin="anonymous"></script>
 
 </body>
 

@@ -1,23 +1,56 @@
 $myOrange : rgb(226, 133, 57);
+$h_header : 7rem;
+$shadow_mdb_1  : 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) ; 
+$shadow_mdb_1_half  : 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15) ;
+
 
 ///////////////////////////////////
 ///////////accueil.html////////////
 ///////////////////////////////////
 
+
+
 body{
     background-color: rgb(252, 252, 252);
     width: auto;
+    padding-top: $h_header;
 }
-.navbar {
-    font-size: 30px;
+// .navbar {
+//     font-size: 30px;
+//     background-color:$myOrange;
+//     .fas {
+//         margin-right: 20px;
+//     }
+//     // #navbarNav{
+//     //     display: flex;
+//     //     justify-content: flex-end;
+//     // }
+// }
+header{
     background-color:$myOrange;
-    .fas {
-        margin-right: 20px;
+    display: flex !important;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding:  1rem 2rem;
+    min-height: $h_header;
+    box-shadow: $shadow_mdb_1;
+    font-size:2rem;
+
+    @media screen and (max-width:700px){
+        flex-direction: column;
+        justify-content: flex-start;
     }
-    // #navbarNav{
-    //     display: flex;
-    //     justify-content: flex-end;
-    // }
+}
+
+#panier{
+    @media screen and (max-width:700px){
+        align-self: flex-end;
+    }
+
 }
 img{
     margin-top: 30px;
@@ -66,26 +99,27 @@ img{
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10rem;
-    button{
-        background-color: #ffffff; 
-        margin-right: 1rem;
-        width: 70px;
-        height: 40px;
-        color: rgb(0, 0, 0);
-        text-decoration: none;
-        transition-duration: 0.4s;
-        box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
-    }
-    button:hover{
-        background-color: $myOrange;
-        color: white;
-    }
     #add_basket{
         margin-top: 2rem;
         width: 110px;
         height: 70px;
         text-align: center;
     }
+}
+
+button{
+    background-color: #ffffff; 
+    margin-right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition-duration: 0.4s;
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
+}
+button:hover{
+    background-color: $myOrange;
+    color: white;
 }
 
 @media screen and (max-width: 385px){
@@ -98,111 +132,76 @@ img{
 ///////////panier.html/////////////
 ///////////////////////////////////
 
-#basket{
-    width: 95%;
-    margin: 2rem;
-}
-
-.teddy_product{
-    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.75);
-    display: flex;
-    margin-top: 2rem;
-    font-size: 20px;
-    .wrap_teddy_image{
-        background-color: pink;
-        margin: 0;
-            width: 8rem;
-            height: 8rem;
-            overflow: hidden;
-            background-repeat: no-repeat;
-            background-position:center;
-            background-size: cover;
-            
-
-        // .teddy_image{
-        //     margin: 0;
-        //     width: 8rem;
-        // }
-    }
-
-    .container_teddy_infos{
-        top: 50%;
-    }
-    .teddy_name{
-        margin-left: 2rem;
-    }
-    .teddy_price{
-        margin-left: 2rem;
-    }
-    .quantity{
-        margin-left: 2rem;
-    }
-    .teddy_product_button{
-        align-items: center;
-        display: flex;
-        top: 50%;
-        
-        button{
-            margin: 0.5rem;
-            width: 3rem;
-            height: 3rem;
-            box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            transition-duration: 0.4s;
-        }
-
-        
-    }
-    button:hover{
-        background-color: $myOrange;
-        color: white;
-    }
-}
-
-#container_form{
+.container_teddy_product{
     margin-top: 5rem;
-    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.75);
-    background-color: rgb(236, 236, 236);
-    margin-left: 2rem;
-    height: 58rem;
-    width: 35rem;
-    h2{
-        text-align: center;
-        margin-top: 2rem;
+    display: flex;
+    border: 1px white solid;
+    box-shadow: $shadow_mdb_1;
+    .teddy_img{
+        .wrap_teddy_image{
+            width: 15rem;
+            height: 15rem;
+        }
+    }
+    .teddy_infos{
+        display: flex;
+        width: 100%;
+        .teddy_infos_product{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding:  5rem 2rem;
+        }
+        .teddy_infos_quantity{
+            display: flex;
+            padding:  6rem 2rem;
+            .quantity{
+                width: 3rem;
+                margin-right:1rem ;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1000px){
+    .teddy_infos_quantity{
+        width: 22rem;
+    }
+}
+@media screen and (max-width: 770px){
+    .container_teddy_product{
+        flex-direction: column;
+        .teddy_img{
+            display: flex;
+            justify-content: center;
+            .wrap_teddy_image{
+                width: 15rem;
+                height: 15rem;
+            }
+        }
+        .teddy_infos{
+            flex-direction: column;
+            .teddy_infos_product{
+                padding: 1rem 1rem;
+            }
+            .teddy_infos_quantity{
+                padding: 1rem 1rem;
+                width: auto;
+            }
+        }
     }
 }
 
-.was-validated {
-    margin: 4rem;
-    label{
-        font-size: 18px;
-        font-weight: bold;
-    }
-    .valid-feedback{
-        font-size: 14px;
-        font-weight: bold;
-    }
-    .invalid-feedback{
-        font-size: 14px;
-        font-weight: bold;
-    }
-    #send_form{
-        margin-top: 1.5rem;
-        background-color: #ffffff; 
-        margin-right: 1rem;
-        width: 200px;
-        height: 40px;
-        border: 1px solid black;
-        box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
-        color: rgb(0, 0, 0);
-        text-decoration: none;
-        transition-duration: 0.4s;
-    }
-    #send_form:hover{
-        background-color: $myOrange;
-        color: white;
-    }
+.wrap_teddy_image{
+            margin: 0;
+                width: 8rem;
+                height: 8rem;
+                overflow: hidden;
+                background-repeat: no-repeat;
+                background-position:center;
+                background-size: cover;
+}
+.teddy_quantity{
+    margin-left: 15rem;
 }
 
 ///////////////////////////////////
@@ -219,12 +218,6 @@ img{
         font-size: 18px;
     }
 }
-
-/*
-.teddy_product[data-id-produit="5beaa8bf1c9d440000a57d94"]{
-    background-color: indianred;
-}
-*/
 
 button , input[type="submit"]{
     // text-transform: uppercase;

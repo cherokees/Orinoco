@@ -5,92 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="js/panier.js" async></script>
-    <script src="https://kit.fontawesome.com/aaf8e3dcb9.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
         integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
     <title>Orinoco Accueil</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        <a class="text-dark text-decoration-none " href="accueil.html"><i class="fas fa-shopping-cart">ORINOCO</i></a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="panier.html">PANIER&nbsp;<span class="nav_qty_basket ">0</span></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <a id="logo" class=" text-dark text-decoration-none " href="accueil.html"><i
+                class="fas fa-shopping-cart">ORINOCO</i></a>
+        <a id="panier" class=" text-dark" href="panier.html">PANIER&nbsp;<span class="nav_qty_basket">0</span></a>
+    </header>
 
-    <div class="container-fluid">
-        <table id="basket"></table>
+    <!-- <div class="items" id="basket"></div> -->
+
+
+    <div class="container" id="basket">
     </div>
 
-    <div class="card" id="container_form">
+
+    <div class="container-fluid mt-3 border" id="container_form">
         <h2 class="text-center">Commande</h2>
-        <form action="" class="was-validated">
-            <div class="col">
-                <div class="form-group">
-                    <label for="username">Prénom</label>
-                    <input type="text" id="prenom" class="form-control" placeholder="prénom" required="" minlength="2">
-                    <div class="valid-feedback">Valide</div>
-                    <div class="invalid-feedback">Veuillez écrire un prénom valide</div>
+        <form action="" class="was-validated border-class">
+            <div class="row">
+                <div class="col-8 col-sm-6 offset-sm-3 offset-2">
+                    <div class="form-group">
+                        <label for="username">Prénom</label>
+                        <input type="text" id="prenom" class="form-control" placeholder="prénom" required=""
+                            minlength="2">
+                        <div class="valid-feedback">Valide</div>
+                        <div class="invalid-feedback">Veuillez écrire un prénom valide</div>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="form-group">
-                    <label for="firstname">Nom</label>
-                    <input type="text" id="name" class="form-control" placeholder="nom" required="" minlength="2">
-                    <div class="valid-feedback">Valide</div>
-                    <div class="invalid-feedback">Veuillez écrire un nom valide</div>
+            <div class="row">
+                <div class="col-8 col-sm-6 offset-sm-3 offset-2">
+                    <div class="form-group">
+                        <label for="firstname">Nom</label>
+                        <input type="text" id="name" class="form-control" placeholder="nom" required="" minlength="2">
+                        <div class="valid-feedback">Valide</div>
+                        <div class="invalid-feedback">Veuillez écrire un nom valide</div>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="form-group" id="container_form_email">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="email" required="">
+            <div class="row">
+                <div class="col-8 col-sm-6 offset-sm-3 offset-2">
+                    <div class="form-group" id="container_form_email">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="email" required="">
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="form-group" id="container_form_adress">
-                    <label for="adress">Adresse</label>
-                    <input type="text" id="adress" class="form-control" placeholder="adresse" required="" minlength="4">
+            <div class="row">
+                <div class="col-8 col-sm-6 offset-sm-3 offset-2">
+                    <div class="form-group" id="container_form_adress">
+                        <label for="adress">Adresse</label>
+                        <input type="text" id="adress" class="form-control" placeholder="adresse" required=""
+                            minlength="4">
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="form-group">
-                    <label for="code_postal">Code postal</label>
-                    <input type="text" id="postal_code" class="form-control" placeholder="code postal" required="">
+            <div class="row">
+                <div class="col-8 col-sm-6 offset-sm-3 offset-2">
+                    <div class="form-group">
+                        <label for="code_postal">Code postal</label>
+                        <input type="text" id="postal_code" class="form-control" placeholder="code postal" required="">
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="form-group">
-                    <label for="ville">Ville</label>
-                    <input type="text" id="ville" class="form-control" placeholder="ville" required="" minlength="3">
-                    <div class="valid-feedback">Valide</div>
-                    <div class="invalid-feedback">Veuillez écrire une ville valide</div>
+            <div class="row">
+                <div class="col-8 col-sm-6 offset-sm-3 offset-2">
+                    <div class="form-group">
+                        <label for="ville">Ville</label>
+                        <input type="text" id="ville" class="form-control" placeholder="ville" required=""
+                            minlength="3">
+                        <div class="valid-feedback">Valide</div>
+                        <div class="invalid-feedback">Veuillez écrire une ville valide</div>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <input type="submit" value="envoyer la commande" id="send_form">
+            <div class="row">
+                <div class="col offset-3">
+                    <input type="submit" value="envoyer la commande" id="send_form">
+                </div>
             </div>
         </form>
     </div>
 
+    <!-- BOOTSTRAP -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
-        integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-    <script src="general.js"></script>
-    <script src="js/panier.js" async></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfX
+        </div>dz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+        integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
+        crossorigin="anonymous"></script> -->
+    <!-- FIN BOOTSTRAP -->
+    <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/aaf8e3dcb9.js" crossorigin="anonymous"></script>
+    <!-- AUTRES -->
+    <script src="general.js"></script>
+    <script src="js/panier.js"></script>
 
 </body>
 

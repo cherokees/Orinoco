@@ -19,6 +19,8 @@ let button_more = document.getElementById("button_more");
 let button_less = document.getElementById("button_less");
 let qty = 1;
 
+
+
 // var arr_cart = JSON.parse(localStorage.getItem("cart"));
 // if (!arr_cart) {
 //     arr_cart = [];
@@ -65,6 +67,7 @@ fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
         refresh_nav_basket();
     });
 });
+
 
 button_more.addEventListener('click', () => {
     input_qty.value = filter_qty(input_qty.value) + 1;

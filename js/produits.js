@@ -19,13 +19,6 @@ let button_more = document.getElementById("button_more");
 let button_less = document.getElementById("button_less");
 let qty = 1;
 
-
-
-// var arr_cart = JSON.parse(localStorage.getItem("cart"));
-// if (!arr_cart) {
-//     arr_cart = [];
-// };
-
 fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
     return response.json();
 }).then(function (data) {
@@ -34,6 +27,13 @@ fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
     info_product.innerHTML += `<p id= "name">${data.name}</p>`;
     info_product.innerHTML += `<p id= "description"> DESCRIPTION : ${data.description}</p>`;
     info_product.innerHTML += `<p id= "price"> PRIX : ${data.price / 100} €</p>`;
+    info_product.innerHTML += `<label for = "menu_choose_color" id ="menu_choose_color">Choisissez une couleur<label>
+                                <select name = "color" id = "choose_color">
+                                    <option value = "">Couleur</option>
+                                    <option value = "Beige">Beige</option>
+                                    <option value = "Marron">Marron</option>
+                                    <option value = "Gris clair">Gris clair</option>
+                                </select>`
 
     let add_basket = document.getElementById("add_basket");
     add_basket.addEventListener("click", () => {

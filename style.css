@@ -68,6 +68,15 @@ img {
   font-size: 30px;
 }
 
+#menu_choose_color label {
+  margin-left: 2rem;
+}
+
+@media screen and (max-width: 365px) {
+  #menu_choose_color label {
+    margin-left: 0;
+  }
+}
 .command_line {
   text-align: center;
   margin-top: 1.5rem;
@@ -132,6 +141,35 @@ button:hover {
   margin-right: 1rem;
 }
 
+#div_total_price {
+  padding: 5rem 2rem;
+}
+#div_total_price p {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  border: 1px solid white;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+#string_total_price {
+  font-size: 28px;
+}
+
+.wrap_teddy_image {
+  margin: 0;
+  width: 8rem;
+  height: 8rem;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.teddy_quantity {
+  margin-left: 15rem;
+}
+
 @media screen and (max-width: 1000px) {
   .teddy_infos_quantity {
     width: 22rem;
@@ -160,20 +198,6 @@ button:hover {
     width: auto;
   }
 }
-.wrap_teddy_image {
-  margin: 0;
-  width: 8rem;
-  height: 8rem;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.teddy_quantity {
-  margin-left: 15rem;
-}
-
 .container_message_confirmation {
   margin-left: 5rem;
   margin-top: 3rem;

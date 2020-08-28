@@ -7,18 +7,32 @@ let quantity = document.getElementsByClassName("quantity");
 var form = document.querySelector(".needs-validation");
 var form = document.querySelector("form");
 let products = [];
+let prix_de_groupe = 0;
 
-// var arr_cart = JSON.parse(localStorage.getItem("cart"));
-// if (!arr_cart) {
-//     arr_cart = [];
-// };
+function maj_vue_prix_total() {
+    let prix_total = 0;
+    let imax = arr_cart.length;
+    for (let i = 0; i < imax; i++) {
+        prix_total += arr_cart[i].qty * arr_cart[i].price;
+    }
+    prix_total /= 100;
+    document.getElementById('price_total').innerHTML = prix_total;
+}
+function maj_vue_prix_groupe(para_key_array_cart) {
+    let prix_de_groupe = (arr_cart[para_key_array_cart].price * arr_cart[para_key_array_cart].qty) / 100;
+    document.querySelector('.prix_de_groupe[data-id-produit="' + arr_cart[para_key_array_cart]._id + '"]').innerHTML = prix_de_groupe;
+}
 
-//<img src= "${product.imageUrl}" class = "teddy_image">
-// ${product.imageUrl}
+
+
+
 
 arr_cart.forEach(product => {
+
+    let prix_de_groupe = (product.price * product.qty) / 100;
+
     basket.innerHTML += `
-    <div class="container_teddy_product">
+    <div class="container_teddy_product" data-id-produit="${product._id}"> <!-- WARNING element utile pour supprimer le noeud -->
         <div class="teddy_img">
             <div class="wrap_teddy_image " style="background-image:url('${product.imageUrl}');">
                 &nbsp;
@@ -26,13 +40,14 @@ arr_cart.forEach(product => {
         </div>
         <div class="teddy_infos">
             <div class="teddy_infos_product">
-                <p>Nom: ${product.name}</p>
-                <p>Prix: ${product.price / 100} €</p>
+                <p>Nom&nbsp;: ${product.name}</p>
+                <p>Prix individuel&nbsp;: ${product.price / 100} €</p>
+                <p>Prix de groupe&nbsp;: <span class="prix_de_groupe" data-id-produit="${product._id}">${prix_de_groupe}</span> €</p>
             </div>
             <div class="teddy_infos_quantity">
                 <div class = "input_quantity">
-                    <label for="quantity">Quantité: </label>
-                    <input type="number" class = "quantity" value="${product.qty}">
+                    <label for="quantity">Quantité&nbsp;: </label>
+                    <input type="number" class = "quantity" value="${product.qty}" readonly>
                 </div>
                 <div class = "button_quantity">
                     <button class ="button_more">+</button>
@@ -41,144 +56,52 @@ arr_cart.forEach(product => {
                 </div>
             </div>
         </div>
-    </div>`
+    </div>`;
 });
 
-// arr_cart.forEach(product => {
-//     basket.innerHTML += `
-//     <div class="teddy_product" data-id-produit="${product._id}">
-//         <div class = "row">
-//         <div class="wrap_teddy_image " style="background-image:url('${product.imageUrl}');">
-//             &nbsp;
-//         </div>
-//         <div class ="container_teddy_infos d-flex flex-wrap align-content-center flex-grow-1">
-//             <div class = "teddy_name col-sm-12">
-//                  Nom: ${product.name} 
-//             </div>
-//             <div class = "teddy_price col-sm-12">
-//                 Prix: ${product.price / 100} €
-//             </div>
-//             <div class = "quantity col-sm-12">
-//                 Quantité: ${product.qty}
-//             </div>
-//         </div>
-//         <div class="teddy_product_button ">
-//             <button class ="button_more">+</button>
-//             <button class ="button_less">-</button>
-//             <button class = "delete_product" data-id-produit="${product._id}">x</button>
-//         </div>
-//     </div>
-//     ` ;
-// });
-
-// let arr_qty_products = [];
-// var somme = 0;
-
-// for (let i = 0; i < arr_cart.length; i++) {
-//     arr_qty_products.push(parseInt(arr_cart[i].qty))
-//     console.log(arr_qty_products)
-// }
-
-// const reducer = (accumulator, currentValue) => accumulator + currentValue;
-// somme = arr_qty_products.reduce(reducer)
-// console.log(somme)
-
-// console.log(arr_cart.products)
-
-// let somme_qty_teddy = 0;
-// let arr_somme_qty_teddy = []
-// const reducer = (accumulator, currentValue) => accumulator + currentValue;
-// arr_cart.total = 0;
-// console.log(arr_cart.total)
-
-// for (let i = 0; i < arr_cart.length; i++) {
-//     console.log(arr_cart[i].qty)
-//     somme_qty_teddy = arr_cart[i].qty * (arr_cart[i].price / 100)
-//     console.log(somme_qty_teddy)
-//     arr_cart[i].total.push(somme_qty_teddy)
-//     console.log(arr_cart[i].total)
-// }
+maj_vue_prix_total();
 
 
-// arr_cart.forEach(product => {
-//     basket.innerHTML += `
-//     <section class="mt-5 mb-4">
-//             <div class="row">
-//                 <div class="col-lg-12">
-//                     <div class="card wish-list mb-4">
-//                         <div class="card-body">
-//                             <div class="row mb-4">
-//                                 <div class="col-md-5 col-lg-3 col-xl-3">
-//                                     <div class="mb-3 mb-md-0">
-//                                         <img class ="img-fluid w-100" src ="${product.imageUrl}">
-//                                     </div>
-//                                 </div>
-//                                 <div class="col-md-7 col-lg-9 col-xl-9 container_teddy_info_cart">
-//                                     <div class = "d-flex teddy_info_cart">
-//                                         <div class="d-flex justify-content-between infos_teddy">
-//                                             <div>
-//                                                 <p class = "mb-3 text-muted text-uppercase small">Nom&nbsp:&nbsp${product.name}</p>
-//                                                 <p class = "mb-3 text-muted text-uppercase small">Prix&nbsp:&nbsp${product.price / 100}€</p>
-//                                                 <p class = "mb-3 text-muted text-uppercase small">Prix&nbsptotal&nbsp:&nbsp${product.price / 100}€</p>
-//                                             </div>
-//                                         </div>
-//                                         <div class="teddy_product_button">
-//                                             <div>
-//                                                 <button class ="button_more">+</button>
-//                                                 <button class ="button_less">-</button>
-//                                                 <button class = "delete_product" data-id-produit="${product._id}">x</button>
-//                                             </div>
-//                                         </div>
-//                                         <div>
-//                                             <div class = "teddy_quantity">
-//                                                 <label for="quantity">
-//                                                     <h4>Quantité : </h4>     
-//                                                 </label>
-//                                             <input id ="quantity" type="number" value="${product.qty}" class="quantity form-control quantity-input" style = "width: 8rem">
-//                                             </div>
-//                                         </div>
-//                                     </div>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </section>`
-// });
-
+// BOUTON PLUS
 for (let i = 0; i < button_more.length; i++) {
     button_more[i].addEventListener("click", () => {
         arr_cart[i].qty++;
+        // prix_total += arr_cart[i].price * arr_cart[i].qty
         // quantity[i].textContent = "quantité : " + arr_cart[i].qty;
         quantity[i].value = arr_cart[i].qty;
         localStorage.setItem("cart", JSON.stringify(arr_cart));
+        maj_vue_prix_groupe(i);
+        maj_vue_prix_total();
     })
 }
 
+// BOUTON MOINS
 for (let i = 0; i < button_less.length; i++) {
     button_less[i].addEventListener("click", (e) => {
-        arr_cart[i].qty--;
-        // quantity[i].textContent = "quantité : " + arr_cart[i].qty;
-        quantity[i].value = arr_cart[i].qty;
-        if (arr_cart[i].qty <= 1) {
-            arr_cart[i].qty = 2;
+        if (arr_cart[i].qty > 1) {
+            arr_cart[i].qty--;
+        } else {
+            arr_cart[i].qty = 1;
         }
+        quantity[i].value = arr_cart[i].qty;
         localStorage.setItem("cart", JSON.stringify(arr_cart));
+        maj_vue_prix_groupe(i);
+        maj_vue_prix_total();
     })
 }
 
+// BOUTON DELETE
 for (let i = 0; i < delete_product.length; i++) {
     delete_product[i].addEventListener("click", () => {
         // on recupere l'id du produit a supprimer
         let id_produit_a_supprimer = delete_product[i].getAttribute('data-id-produit')
-        // on le supprime cote back 
 
-        imax = arr_cart.length
-        for (let i = 0; i < imax; i++) {
-            if (id_produit_a_supprimer === arr_cart[i]._id) {
+        // on le supprime cote back 
+        imax2 = arr_cart.length
+        for (let i2 = 0; i2 < imax2; i2++) {
+            if (id_produit_a_supprimer === arr_cart[i2]._id) {
                 //on supprime
-                delete arr_cart[i];
+                delete arr_cart[i2];
                 //supprimer le parentNode du parentNode du bouton delete dans le dom
 
                 // on enleve les noeuds vides du tableaux (en l'occurrence, les produits qu'on a supprimé via la page panier.html)
@@ -194,11 +117,14 @@ for (let i = 0; i < delete_product.length; i++) {
         refresh_nav_basket();
 
         // on supprime le noeud dans DOM 
-        var noeud_a_supprimer = document.querySelector(`.teddy_product[data-id-produit="${id_produit_a_supprimer}"]`);
+        var noeud_a_supprimer = document.querySelector(`.container_teddy_product[data-id-produit="${id_produit_a_supprimer}"]`);
         noeud_a_supprimer.remove();
 
+        // on met a jour le prix total 
+        maj_vue_prix_total();
     })
 }
+// FIN BOUTON DELETE
 
 let container_form_email = document.getElementById("container_form_email");
 let form_input_email = document.getElementById("email");
@@ -212,7 +138,6 @@ form_input_email.addEventListener("click", () => {
 
 let container_form_adress = document.getElementById("container_form_adress");
 let form_input_adress = document.getElementById("adress");
-// console.log(form_input_adress)
 
 form_input_adress.addEventListener("click", () => {
     if (/^[a-zA-Z\s\d\/]*\d[a-zA-Z\s\d\/]*$/.test(form.adress.value)) {
@@ -233,17 +158,7 @@ form_input_postal_code.addEventListener("click", () => {
 })
 
 
-
-
-// input_nom = document.getElementById("nom");
-// console.log(input_nom.value)
-
 //bootstrap validator = pour mettre des conditions sur le type/nombre de caractère à mettre dans les inputs//
-
-for (let i = 0; i < arr_cart.length; i++) {
-    // console.log(arr_cart[i])
-}
-
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -258,30 +173,13 @@ form.addEventListener("submit", function (event) {
 
     imax = arr_cart.length
     for (let i = 0; i < imax; i++) {
-        // console.log(arr_cart[i].qty)
-        // products.push(arr_cart[i]._id)
         products.push(arr_cart[i])
-        // console.log(arr_cart[i])
-        // products.push(JSON.stringify(somme))
     }
-
-    // console.log('AAAAAAAAAAAAAAA')
-    // console.log(products)
-    // console.log('ZZZZZZZZZZZZZZZ')
 
     let obj_body = {
         contact,
         products
     }
-
-    // console.log(obj_body)
-
-    var lasagne = {
-        method: "POST",
-        body: JSON.stringify(obj_body),
-        headers: { 'content-type': 'application/json' }
-    };
-    // console.log(lasagne)
 
     /*
     - mettre tous les js en bas avant la fermeture de la balise body 
@@ -289,38 +187,19 @@ form.addEventListener("submit", function (event) {
     - prendre lasagne, appliquer .json() pour vérifier s'il n'y a un problème de passage stringify, pour essayer de retrouver la qty 
     */
 
+    fetch("http://localhost:3000/api/teddies/order", {
+        method: "POST",
 
-    fetch("http://localhost:3000/api/teddies/order", lasagne).then(function (response) {
-        console.log(response.json())
-
-        // return response.json();
+        body: JSON.stringify(obj_body),
+        headers: { 'content-type': 'application/json' }
+    }).then(function (response) {
+        return response.json();
     }).then(function (text) {
-        // console.log(text);
-        // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
         let arr_text = text
-        // console.log(arr_text)
         localStorage.setItem("text", JSON.stringify(arr_text))
-        // document.location.href = "confirmation-commande.html";
+        document.location.href = "confirmation-commande.html";
     }).then(function (error) {
         console.error(error)
     })
-
-
-
-    // fetch("http://localhost:3000/api/teddies/order", {
-    //     method: "POST",
-    //     body: JSON.stringify(obj_body),
-    //     headers: { 'content-type': 'application/json' }
-    // }).then(function (response) {
-    //     return response.json();
-    // }).then(function (text) {
-    //     console.log(text);
-    //     let arr_text = text
-    //     // console.log(arr_text)
-    //     localStorage.setItem("text", JSON.stringify(arr_text))
-    //     document.location.href = "confirmation-commande.html";
-    // }).then(function (error) {
-    //     console.error(error)
-    // })
 
 })

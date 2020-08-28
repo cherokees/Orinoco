@@ -93,6 +93,20 @@ img{
     }
 }
 
+#menu_choose_color{
+    label{
+        margin-left: 2rem;
+    }
+}
+
+@media screen and (max-width: 365px){
+    #menu_choose_color{
+        label{
+            margin-left: 0;
+        }
+    }
+}
+
 .command_line{
     text-align: center;
     margin-top: 1.5rem;
@@ -162,6 +176,34 @@ button:hover{
         }
     }
 }
+#div_total_price{
+    padding: 5rem 2rem;
+    p{
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        border: 1px solid white;
+        box-shadow: $shadow_mdb_1;
+    }
+}
+
+#string_total_price{
+    font-size: 28px;
+}
+
+.wrap_teddy_image{
+            margin: 0;
+                width: 8rem;
+                height: 8rem;
+                overflow: hidden;
+                background-repeat: no-repeat;
+                background-position:center;
+                background-size: cover;
+}
+.teddy_quantity{
+    margin-left: 15rem;
+}
+
 @media screen and (max-width: 1000px){
     .teddy_infos_quantity{
         width: 22rem;
@@ -189,19 +231,6 @@ button:hover{
             }
         }
     }
-}
-
-.wrap_teddy_image{
-            margin: 0;
-                width: 8rem;
-                height: 8rem;
-                overflow: hidden;
-                background-repeat: no-repeat;
-                background-position:center;
-                background-size: cover;
-}
-.teddy_quantity{
-    margin-left: 15rem;
 }
 
 ///////////////////////////////////

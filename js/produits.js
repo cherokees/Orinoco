@@ -1,12 +1,4 @@
-// on vérifie si c'est un entier et s'il est >= 1, sinon on le transforme en 1
-function filter_qty(para_int) {
-    //https://delicious-insights.com/fr/articles/convertir-un-nombre-en-texte-en-javascript/#la-m-thode-hack-ultra-performante-mais-peu-lisible-et-non-sans-limites
-    let result = parseInt(para_int | 0);
-    if (result < 1) result = 1; // la quantitee doit obligatoirement etre 1 ou +
-    //si le resultat est >= 1 il reste le même, par exemple 5 restera 5
-    return result;
-}
-
+// VARIABLES
 let imax = 0;
 let url = window.location.href;
 let urlObject = new URL(url);
@@ -18,6 +10,18 @@ let input_qty = document.getElementById("qty")
 let button_more = document.getElementById("button_more");
 let button_less = document.getElementById("button_less");
 let qty = 1;
+
+// FONCTIONS
+// on vérifie si c'est un entier et s'il est >= 1, sinon on le transforme en 1
+function filter_qty(para_int) {
+    let result = parseInt(para_int | 0);// NOTE le pipe 0 permet de transformer la chaine "55element" en entier 55, si on ne le met pas on aurait eu NaN="not a number"
+    //https://delicious-insights.com/fr/articles/convertir-un-nombre-en-texte-en-javascript/#la-m-thode-hack-ultra-performante-mais-peu-lisible-et-non-sans-limites
+    if (result < 1) result = 1; // la quantitee doit obligatoirement etre 1 ou +
+    //si le resultat est >= 1 il reste le même, par exemple 5 restera 5
+    return result;
+}
+
+//REQUETE
 
 fetch("http://localhost:3000/api/teddies/" + id).then(function (response) {
     return response.json();
@@ -81,9 +85,3 @@ input_qty.addEventListener('change', () => {
     input_qty.value = filter_qty(input_qty.value);
     refresh_nav_basket();
 })
-
-
-// console.log(document.querySelectorAll("iframe[data-image_product]"))
-// console.log(document.getAttribute("data-image_product"))
-
-

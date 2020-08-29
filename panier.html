@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
         integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
@@ -13,7 +14,7 @@
 <body>
     <header>
         <a id="logo" class=" text-dark text-decoration-none " href="accueil.html"><i
-                class="fas fa-shopping-cart">ORINOCO</i></a>
+                class="fas fa-shopping-cart"></i><span id="logo_nom">Orinoco</span></a>
         <a id="panier" class=" text-dark" href="panier.html">PANIER&nbsp;<span class="nav_qty_basket">0</span></a>
     </header>
 
@@ -36,7 +37,7 @@
                         <input type="text" id="prenom" class="form-control" placeholder="prénom" required=""
                             minlength="2">
                         <div class="valid-feedback">Valide</div>
-                        <div class="invalid-feedback">Veuillez écrire un prénom valide</div>
+                        <div class="invalid-feedback">Veuillez écrire un prénom valide (minimum 2 lettres)</div>
                     </div>
                 </div>
             </div>
@@ -46,7 +47,7 @@
                         <label for="firstname">Nom</label>
                         <input type="text" id="name" class="form-control" placeholder="nom" required="" minlength="2">
                         <div class="valid-feedback">Valide</div>
-                        <div class="invalid-feedback">Veuillez écrire un nom valide</div>
+                        <div class="invalid-feedback">Veuillez écrire un nom valide (minimum 2 lettres)</div>
                     </div>
                 </div>
             </div>

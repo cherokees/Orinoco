@@ -9,6 +9,10 @@ var form = document.querySelector("form");
 let products = [];
 let prix_de_groupe = 0;
 
+//Les écouteurs d'événements sont créé au chargement de la page 
+//par la suite on modifie le DOM, il faudrait également modifier les écouteurs.
+//utilisation des événements au sein des attributs HTML (onclick) permet de faire une pierre deux coups.
+
 function maj_vue_prix_total() {
     let prix_total = 0;
     let imax = arr_cart.length;
@@ -132,10 +136,7 @@ arr_cart.forEach(product => {
 
 maj_vue_prix_total();
 
-
-
-
-
+// FORMULAIRE
 
 let container_form_email = document.getElementById("container_form_email");
 let form_input_email = document.getElementById("email");
@@ -168,6 +169,7 @@ form_input_postal_code.addEventListener("click", () => {
     return container_form_postal_code.innerHTML += `<div class="invalid-feedback">Veuillez écrire un email valide</div>`
 })
 
+//REQUETE FETCH
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();

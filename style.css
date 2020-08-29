@@ -25,10 +25,30 @@ header {
   }
 }
 
+#logo {
+  font-size: 4rem;
+}
+
+#logo_nom {
+  text-transform: uppercase;
+  font-family: "Indie Flower", cursive;
+  padding-left: 1rem;
+  font-weight: bold;
+}
+
+#panier {
+  text-transform: uppercase;
+  font-family: "Indie Flower", cursive;
+  font-size: 4rem;
+  font-weight: bold;
+}
 @media screen and (max-width: 700px) {
   #panier {
     align-self: flex-end;
   }
+}
+#panier > span {
+  min-width: 7rem;
 }
 
 img {
@@ -149,8 +169,9 @@ button:hover {
   padding: 2rem;
   display: flex;
   justify-content: center;
-  border: 1px solid white;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  font-weight: bold;
+  font-size: 3rem;
+  text-decoration: overline;
 }
 
 #string_total_price {
@@ -219,6 +240,11 @@ button, input[type=submit] {
 }
 button::first-letter, input[type=submit]::first-letter {
   text-transform: uppercase !important;
+}
+
+#title_confirmation {
+  font-size: 3rem;
+  padding: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

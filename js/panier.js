@@ -90,9 +90,11 @@ for (let i = 0; i < button_less.length; i++) {
     })
 }
 
+
+
 // BOUTON DELETE
 for (let i = 0; i < delete_product.length; i++) {
-    delete_product[i].addEventListener("click", () => {
+    function toto() {
         // on recupere l'id du produit a supprimer
         let id_produit_a_supprimer = delete_product[i].getAttribute('data-id-produit')
 
@@ -122,7 +124,10 @@ for (let i = 0; i < delete_product.length; i++) {
 
         // on met a jour le prix total 
         maj_vue_prix_total();
-    })
+    }
+
+    delete_product[i].removeEventListener("click", function () { toto() });
+    delete_product[i].addEventListener("click", function () { toto() });
 }
 // FIN BOUTON DELETE
 

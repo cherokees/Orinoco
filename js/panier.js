@@ -22,10 +22,81 @@ function maj_vue_prix_groupe(para_key_array_cart) {
     let prix_de_groupe = (arr_cart[para_key_array_cart].price * arr_cart[para_key_array_cart].qty) / 100;
     document.querySelector('.prix_de_groupe[data-id-produit="' + arr_cart[para_key_array_cart]._id + '"]').innerHTML = prix_de_groupe;
 }
+function fct_delete_product(id_produit_a_supprimer) {
+    var noeud_a_supprimer = document.querySelector(`.container_teddy_product[data-id-produit="${id_produit_a_supprimer}"]`);
+    imax = arr_cart.length
+    for (let i = 0; i < imax; i++) {
+        if (id_produit_a_supprimer === arr_cart[i]._id) {
+            //on supprime
+            delete arr_cart[i];
+            //supprimer le parentNode du parentNode du bouton delete dans le dom
 
+            // on enleve les noeuds vides du tableaux (en l'occurrence, les produits qu'on a supprimé via la page panier.html)
+            arr_cart = arr_cart.filter(function (element) {
+                return element != null;
+            });
 
+            localStorage.setItem("cart", JSON.stringify(arr_cart))
+            break;
+        }
+    }
+    // on rafraichit le panier
+    refresh_nav_basket();
 
+    // on supprime le noeud dans DOM 
+    noeud_a_supprimer.remove();
 
+    // on met a jour le prix total 
+    maj_vue_prix_total();
+}
+// BOUTON PLUS
+function fct_more_qty_product(id_produit_a_incrementer) {
+    imax = arr_cart.length
+    for (let i = 0; i < imax; i++) {
+        if (id_produit_a_incrementer === arr_cart[i]._id) {
+            arr_cart[i].qty++;
+            // maj localstorage 
+            localStorage.setItem("cart", JSON.stringify(arr_cart));
+
+            // mettre à jour de la quantite dans l'input de quantite
+            document.querySelector('input.quantity[data-id-produit="' + id_produit_a_incrementer + '" ]').value = arr_cart[i].qty;
+
+            // maj des prix
+            maj_vue_prix_groupe(i);
+            maj_vue_prix_total();
+
+            // on rafraichit le panier
+            refresh_nav_basket();
+            break;
+        }
+    }
+}
+// BOUTON MOINS
+function fct_less_qty_product(id_produit_a_incrementer) {
+    imax = arr_cart.length
+    for (let i = 0; i < imax; i++) {
+        if (id_produit_a_incrementer === arr_cart[i]._id) {
+            if (arr_cart[i].qty > 1) {
+                arr_cart[i].qty--;
+            } else {
+                arr_cart[i].qty = 1;
+            }
+            // maj localstorage 
+            localStorage.setItem("cart", JSON.stringify(arr_cart));
+
+            // mettre à jour de la quantite dans l'input de quantite
+            document.querySelector('input.quantity[data-id-produit="' + id_produit_a_incrementer + '" ]').value = arr_cart[i].qty;
+
+            // maj des prix
+            maj_vue_prix_groupe(i);
+            maj_vue_prix_total();
+
+            // on rafraichit le panier
+            refresh_nav_basket();
+            break;
+        }
+    }
+}
 
 arr_cart.forEach(product => {
 
@@ -47,12 +118,12 @@ arr_cart.forEach(product => {
             <div class="teddy_infos_quantity">
                 <div class = "input_quantity">
                     <label for="quantity">Quantité&nbsp;: </label>
-                    <input type="number" class = "quantity" value="${product.qty}" readonly>
+                    <input type="number" class = "quantity" value="${product.qty}" data-id-produit="${product._id}" readonly>
                 </div>
                 <div class = "button_quantity">
-                    <button class ="button_more">+</button>
-                    <button class ="button_less">-</button>
-                    <button class = "delete_product" data-id-produit="${product._id}">x</button>
+                    <button class ="button_more" onclick="fct_more_qty_product('${product._id}');">+</button>
+                    <button class ="button_less" onclick="fct_less_qty_product('${product._id}');">-</button>
+                    <button class = "delete_product" onclick="fct_delete_product('${product._id}');">x</button>
                 </div>
             </div>
         </div>
@@ -62,74 +133,9 @@ arr_cart.forEach(product => {
 maj_vue_prix_total();
 
 
-// BOUTON PLUS
-for (let i = 0; i < button_more.length; i++) {
-    button_more[i].addEventListener("click", () => {
-        arr_cart[i].qty++;
-        // prix_total += arr_cart[i].price * arr_cart[i].qty
-        // quantity[i].textContent = "quantité : " + arr_cart[i].qty;
-        quantity[i].value = arr_cart[i].qty;
-        localStorage.setItem("cart", JSON.stringify(arr_cart));
-        maj_vue_prix_groupe(i);
-        maj_vue_prix_total();
-    })
-}
-
-// BOUTON MOINS
-for (let i = 0; i < button_less.length; i++) {
-    button_less[i].addEventListener("click", (e) => {
-        if (arr_cart[i].qty > 1) {
-            arr_cart[i].qty--;
-        } else {
-            arr_cart[i].qty = 1;
-        }
-        quantity[i].value = arr_cart[i].qty;
-        localStorage.setItem("cart", JSON.stringify(arr_cart));
-        maj_vue_prix_groupe(i);
-        maj_vue_prix_total();
-    })
-}
 
 
 
-// BOUTON DELETE
-for (let i = 0; i < delete_product.length; i++) {
-    function toto() {
-        // on recupere l'id du produit a supprimer
-        let id_produit_a_supprimer = delete_product[i].getAttribute('data-id-produit')
-
-        // on le supprime cote back 
-        imax2 = arr_cart.length
-        for (let i2 = 0; i2 < imax2; i2++) {
-            if (id_produit_a_supprimer === arr_cart[i2]._id) {
-                //on supprime
-                delete arr_cart[i2];
-                //supprimer le parentNode du parentNode du bouton delete dans le dom
-
-                // on enleve les noeuds vides du tableaux (en l'occurrence, les produits qu'on a supprimé via la page panier.html)
-                arr_cart = arr_cart.filter(function (element) {
-                    return element != null;
-                });
-
-                localStorage.setItem("cart", JSON.stringify(arr_cart))
-                break;
-            }
-        }
-        // on rafraichit le panier
-        refresh_nav_basket();
-
-        // on supprime le noeud dans DOM 
-        var noeud_a_supprimer = document.querySelector(`.container_teddy_product[data-id-produit="${id_produit_a_supprimer}"]`);
-        noeud_a_supprimer.remove();
-
-        // on met a jour le prix total 
-        maj_vue_prix_total();
-    }
-
-    delete_product[i].removeEventListener("click", function () { toto() });
-    delete_product[i].addEventListener("click", function () { toto() });
-}
-// FIN BOUTON DELETE
 
 let container_form_email = document.getElementById("container_form_email");
 let form_input_email = document.getElementById("email");
@@ -163,8 +169,6 @@ form_input_postal_code.addEventListener("click", () => {
 })
 
 
-//bootstrap validator = pour mettre des conditions sur le type/nombre de caractère à mettre dans les inputs//
-
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -186,12 +190,6 @@ form.addEventListener("submit", function (event) {
         products
     }
 
-    /*
-    - mettre tous les js en bas avant la fermeture de la balise body 
-    - recopier à partir d'une page qui fonctionne le même CDN de bootstrap
-    - prendre lasagne, appliquer .json() pour vérifier s'il n'y a un problème de passage stringify, pour essayer de retrouver la qty 
-    */
-
     fetch("http://localhost:3000/api/teddies/order", {
         method: "POST",
 
@@ -206,5 +204,6 @@ form.addEventListener("submit", function (event) {
     }).then(function (error) {
         console.error(error)
     })
-
 })
+
+

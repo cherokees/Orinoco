@@ -145,7 +145,7 @@ form_input_email.addEventListener("click", () => {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email.value)) {
         return container_form_email.innerHTML += `<div class="valid-feedback">Valide</div>`
     }
-    return container_form_email.innerHTML += `<div class="invalid-feedback">Veuillez écrire un email valide</div>`
+    return container_form_email.innerHTML += `<div class="invalid-feedback">Veuillez écrire un email valide ( exemple : aaa@aaa.aaa)</div>`
 })
 
 let container_form_adress = document.getElementById("container_form_adress");
@@ -155,18 +155,7 @@ form_input_adress.addEventListener("click", () => {
     if (/^[a-zA-Z\s\d\/]*\d[a-zA-Z\s\d\/]*$/.test(form.adress.value)) {
         return container_form_adress.innerHTML += `<div class="valid-feedback">Valide</div>`
     }
-    return container_form_adress.innerHTML += `<div class="invalid-feedback">Veuillez écrire un email valide</div>`
-})
-
-let regex_code_postal = /[0-9]{5}/g
-let container_form_postal_code = document.getElementById("container_form_postal_code");
-let form_input_postal_code = document.getElementById("postal_code");
-
-form_input_postal_code.addEventListener("click", () => {
-    if (regex_code_postal.test(form.postal_code.value)) {
-        return container_form_postal_code.innerHTML += `<div class="valid-feedback">Valide</div>`
-    }
-    return container_form_postal_code.innerHTML += `<div class="invalid-feedback">Veuillez écrire un email valide</div>`
+    return container_form_adress.innerHTML += `<div class="invalid-feedback">Veuillez écrire une adresse valide (minimum 4 lettres)</div>`
 })
 
 //REQUETE FETCH

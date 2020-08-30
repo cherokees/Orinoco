@@ -159,6 +159,15 @@ button:hover{
     color: white;
 }
 
+button , input[type="submit"]{
+    // text-transform: uppercase;
+    border-radius : 50rem !important;
+
+    &::first-letter{
+        text-transform: uppercase !important;
+    }
+}
+
 @media screen and (max-width: 385px){
     button{
         margin-bottom: 2rem;
@@ -281,23 +290,24 @@ button:hover{
 .container_message_confirmation{
     margin-left: 5rem;
     margin-top: 3rem;
-    h1{
-        margin-bottom: 3rem;
-    }
     p{
         font-size: 18px;
     }
-}
-
-button , input[type="submit"]{
-    // text-transform: uppercase;
-    border-radius : 50rem !important;
-
-    &::first-letter{
-        text-transform: uppercase !important;
+    @media screen and (max-width: 750px){
+        margin-left: 2rem;
+    }
+    @media screen and (max-width: 400px){
+        text-align: center;
+        margin-left: 0rem;
     }
 }
+
 #title_confirmation{
     font-size:3rem;
     padding:2rem;
+    margin-bottom: 3rem;
+    @media screen and (max-width: 750px){
+        font-size: 2rem;
+    }
 }
+

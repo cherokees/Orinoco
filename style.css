@@ -148,6 +148,13 @@ button:hover {
   color: white;
 }
 
+button, input[type=submit] {
+  border-radius: 50rem !important;
+}
+button::first-letter, input[type=submit]::first-letter {
+  text-transform: uppercase !important;
+}
+
 @media screen and (max-width: 385px) {
   button {
     margin-bottom: 2rem;
@@ -265,23 +272,30 @@ button:hover {
   margin-left: 5rem;
   margin-top: 3rem;
 }
-.container_message_confirmation h1 {
-  margin-bottom: 3rem;
-}
 .container_message_confirmation p {
   font-size: 18px;
 }
-
-button, input[type=submit] {
-  border-radius: 50rem !important;
+@media screen and (max-width: 750px) {
+  .container_message_confirmation {
+    margin-left: 2rem;
+  }
 }
-button::first-letter, input[type=submit]::first-letter {
-  text-transform: uppercase !important;
+@media screen and (max-width: 400px) {
+  .container_message_confirmation {
+    text-align: center;
+    margin-left: 0rem;
+  }
 }
 
 #title_confirmation {
   font-size: 3rem;
   padding: 2rem;
+  margin-bottom: 3rem;
+}
+@media screen and (max-width: 750px) {
+  #title_confirmation {
+    font-size: 2rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -174,6 +174,7 @@ button:hover{
     display: flex;
     border: 1px white solid;
     box-shadow: $shadow_mdb_1;
+    height: 15.1rem;
     .teddy_img{
         .wrap_teddy_image{
             width: 15rem;
@@ -192,6 +193,11 @@ button:hover{
         .teddy_infos_quantity{
             display: flex;
             padding:  6rem 2rem;
+            @media screen and (max-width: 1000px){
+                .teddy_infos_quantity{
+                    width: 22rem;
+                }
+            }
             .quantity{
                 width: 3rem;
                 margin-right:1rem ;
@@ -199,49 +205,11 @@ button:hover{
         }
     }
 }
-#div_total_price{
-    padding: 5rem 2rem;
-    p{
-        padding: 2rem;
-        display: flex;
-        justify-content: center;
-        font-weight: bold;
-        font-size:3rem;
-        text-decoration:overline;
-        // border: 1px solid white;
-        // box-shadow: $shadow_mdb_1;
-    }
-}
 
-#string_total_price{
-    font-size: 28px;
-}
-
-.wrap_teddy_image{
-            margin: 0;
-                width: 8rem;
-                height: 8rem;
-                overflow: hidden;
-                background-repeat: no-repeat;
-                background-position:center;
-                background-size: cover;
-}
-.teddy_quantity{
-    margin-left: 15rem;
-}
-
-#container_form{
-    margin-bottom: 5rem;
-}
-
-@media screen and (max-width: 1000px){
-    .teddy_infos_quantity{
-        width: 22rem;
-    }
-}
-@media screen and (max-width: 770px){
+@media screen and (max-width: 990px){
     .container_teddy_product{
         flex-direction: column;
+        height: auto;
         .teddy_img{
             display: flex;
             justify-content: center;
@@ -262,6 +230,48 @@ button:hover{
         }
     }
 }
+
+#div_total_price{
+    padding: 5rem 2rem;
+    @media screen and(max-width:415px){
+        padding: 1rem 1rem;
+    }
+    p{
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        text-decoration:overline;
+    }
+}
+
+#string_total_price{
+    font-size: 3rem;
+    @media screen and(max-width:560px){
+        font-size: 2rem;
+    }
+    @media screen and(max-width:415px){
+        font-size: 1.5rem;
+    }
+}
+
+.wrap_teddy_image{
+            margin: 0;
+                width: 8rem;
+                height: 8rem;
+                overflow: hidden;
+                background-repeat: no-repeat;
+                background-position:center;
+                background-size: cover;
+}
+.teddy_quantity{
+    margin-left: 15rem;
+}
+
+#container_form{
+    margin-bottom: 5rem;
+}
+
 
 ///////////////////////////////////
 ////confirmation-commande.html/////
